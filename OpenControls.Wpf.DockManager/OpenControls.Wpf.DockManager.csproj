@@ -1,170 +1,81 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C4D43E50-84B0-47FF-888E-7C8351368BD6}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>OpenControls.Wpf.DockManager</RootNamespace>
-    <AssemblyName>OpenControls.Wpf.DockManager</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <Deterministic>true</Deterministic>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="WindowsBase" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
+    <ProjectReference Include="..\OpenControls.Wpf.TabHeaderControl\OpenControls.Wpf.TabHeaderControl.csproj" />
+    <ProjectReference Include="..\OpenControls.Wpf.Utilities\OpenControls.Wpf.Utilities.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\IToolListBox.cs" />
-    <Compile Include="Controls\IToolListBoxItem.cs" />
-    <Compile Include="Controls\ToolListBox.xaml.cs">
-      <DependentUpon>ToolListBox.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DockPane.cs" />
-    <Compile Include="DockPaneManager.cs" />
-    <Compile Include="DocumentContainer.cs" />
-    <Compile Include="DocumentPaneGroup.cs" />
-    <Compile Include="DocumentPanel.cs" />
-    <Compile Include="Events\FloatEventArgs.cs" />
-    <Compile Include="Events\FloatEventHandler.cs" />
-    <Compile Include="Events\ItemClickEventArgs.cs" />
-    <Compile Include="Events\ItemClickEventHandler.cs" />
-    <Compile Include="Events\TabClosedEventArgs.cs" />
-    <Compile Include="Events\TabClosedEventHandler.cs" />
-    <Compile Include="ExtensionMethods.cs" />
-    <Compile Include="FloatingDocumentPaneGroup.cs" />
-    <Compile Include="FloatingPane.xaml.cs">
-      <DependentUpon>FloatingPane.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="FloatingPaneManager.cs" />
-    <Compile Include="FloatingToolPaneGroup.cs" />
-    <Compile Include="FloatingViewModel.cs" />
-    <Compile Include="Helpers.cs" />
-    <Compile Include="IActiveDocument.cs" />
-    <Compile Include="IDockPaneHost.cs" />
-    <Compile Include="IDockPaneManager.cs" />
-    <Compile Include="IFloatingPane.cs" />
-    <Compile Include="IFloatingPaneHost.cs" />
-    <Compile Include="IFloatingPaneManager.cs" />
-    <Compile Include="ILayoutFactory.cs" />
-    <Compile Include="InsertionIndicatorManager.cs" />
-    <Compile Include="ISelectablePane.cs" />
-    <Compile Include="IUnpinnedToolHost.cs" />
-    <Compile Include="IUnpinnedToolManager.cs" />
-    <Compile Include="IViewContainer.cs" />
-    <Compile Include="IViewModel.cs" />
-    <Compile Include="LayoutManager.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="SelectablePane.cs" />
-    <Compile Include="Serialisation\LayoutReader.cs" />
-    <Compile Include="Serialisation\LayoutWriter.cs" />
-    <Compile Include="SideLocationPane.xaml.cs">
-      <DependentUpon>SideLocationPane.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SplitterPane.cs" />
-    <Compile Include="Theme.cs" />
-    <Compile Include="ToolContainer.cs" />
-    <Compile Include="ToolListBoxItem.cs" />
-    <Compile Include="ToolPaneGroup.cs" />
-    <Compile Include="UnpinnedToolData.cs" />
-    <Compile Include="UnpinnedToolManager.cs" />
-    <Compile Include="UnpinnedToolPane.xaml.cs">
-      <DependentUpon>UnpinnedToolPane.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewContainer.cs" />
-    <Compile Include="WindowLocation.cs" />
-    <Compile Include="WindowLocationPane.xaml.cs">
-      <DependentUpon>WindowLocationPane.xaml</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\OpenControls.Wpf.TabHeaderControl\OpenControls.Wpf.TabHeaderControl.csproj">
-      <Project>{8e8a4b99-7396-4ce2-81b1-53b2da0827fb}</Project>
-      <Name>OpenControls.Wpf.TabHeaderControl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OpenControls.Wpf.Utilities\OpenControls.Wpf.Utilities.csproj">
-      <Project>{117f1160-81bf-42cd-b48c-e73bec059b30}</Project>
-      <Name>OpenControls.Wpf.Utilities</Name>
-    </ProjectReference>
+    <Compile Remove="DockManager\Controls\IToolListBox.cs" />
+    <Compile Remove="DockManager\Controls\IToolListBoxItem.cs" />
+    <Compile Remove="DockManager\Controls\ToolListBox.xaml.cs" />
+    <Compile Remove="DockManager\Converters\BrushToColourConverter.cs" />
+    <Compile Remove="DockManager\Converters\CornerRadiusToStringConverter.cs" />
+    <Compile Remove="DockManager\Converters\ThicknessToStringConverter.cs" />
+    <Compile Remove="DockManager\DockPane.cs" />
+    <Compile Remove="DockManager\DockPaneManager.cs" />
+    <Compile Remove="DockManager\DocumentContainer.cs" />
+    <Compile Remove="DockManager\DocumentPaneGroup.cs" />
+    <Compile Remove="DockManager\DocumentPanel.cs" />
+    <Compile Remove="DockManager\Events\FloatEventArgs.cs" />
+    <Compile Remove="DockManager\Events\FloatEventHandler.cs" />
+    <Compile Remove="DockManager\Events\ItemClickEventArgs.cs" />
+    <Compile Remove="DockManager\Events\ItemClickEventHandler.cs" />
+    <Compile Remove="DockManager\Events\TabClosedEventArgs.cs" />
+    <Compile Remove="DockManager\Events\TabClosedEventHandler.cs" />
+    <Compile Remove="DockManager\ExtensionMethods.cs" />
+    <Compile Remove="DockManager\FloatingDocumentPaneGroup.cs" />
+    <Compile Remove="DockManager\FloatingPane.xaml.cs" />
+    <Compile Remove="DockManager\FloatingPaneManager.cs" />
+    <Compile Remove="DockManager\FloatingToolPaneGroup.cs" />
+    <Compile Remove="DockManager\FloatingViewModel.cs" />
+    <Compile Remove="DockManager\Helpers.cs" />
+    <Compile Remove="DockManager\IDockPaneHost.cs" />
+    <Compile Remove="DockManager\IDockPaneManager.cs" />
+    <Compile Remove="DockManager\IFloatingPane.cs" />
+    <Compile Remove="DockManager\IFloatingPaneHost.cs" />
+    <Compile Remove="DockManager\IFloatingPaneManager.cs" />
+    <Compile Remove="DockManager\ILayoutFactory.cs" />
+    <Compile Remove="DockManager\InsertionIndicatorManager.cs" />
+    <Compile Remove="DockManager\ISelectablePane.cs" />
+    <Compile Remove="DockManager\IUnpinnedToolHost.cs" />
+    <Compile Remove="DockManager\IUnpinnedToolManager.cs" />
+    <Compile Remove="DockManager\IViewContainer.cs" />
+    <Compile Remove="DockManager\IViewModel.cs" />
+    <Compile Remove="DockManager\LayoutManager.cs" />
+    <Compile Remove="DockManager\SelectablePane.cs" />
+    <Compile Remove="DockManager\Serialisation\LayoutReader.cs" />
+    <Compile Remove="DockManager\Serialisation\LayoutWriter.cs" />
+    <Compile Remove="DockManager\SideLocationPane.xaml.cs" />
+    <Compile Remove="DockManager\SplitterPane.cs" />
+    <Compile Remove="DockManager\Theme.cs" />
+    <Compile Remove="DockManager\ToolContainer.cs" />
+    <Compile Remove="DockManager\ToolListBoxItem.cs" />
+    <Compile Remove="DockManager\ToolPaneGroup.cs" />
+    <Compile Remove="DockManager\UnpinnedToolData.cs" />
+    <Compile Remove="DockManager\UnpinnedToolManager.cs" />
+    <Compile Remove="DockManager\UnpinnedToolPane.xaml.cs" />
+    <Compile Remove="DockManager\User32.cs" />
+    <Compile Remove="DockManager\Utilities.cs" />
+    <Compile Remove="DockManager\ViewContainer.cs" />
+    <Compile Remove="DockManager\WindowLocation.cs" />
+    <Compile Remove="DockManager\WindowLocationPane.xaml.cs" />
+    <Compile Remove="FloatEventArgs.cs" />
+    <Compile Remove="FloatEventHandler.cs" />
+    <Page Remove="DockManager\Controls\ToolListBox.xaml" />
+    <Page Remove="DockManager\Dictionary.xaml" />
+    <Page Remove="DockManager\FloatingPane.xaml" />
+    <Page Remove="DockManager\SideLocationPane.xaml" />
+    <Page Remove="DockManager\UnpinnedToolPane.xaml" />
+    <Page Remove="DockManager\WindowLocationPane.xaml" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Controls\ToolListBox.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dictionary.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FloatingPane.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SideLocationPane.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UnpinnedToolPane.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="WindowLocationPane.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

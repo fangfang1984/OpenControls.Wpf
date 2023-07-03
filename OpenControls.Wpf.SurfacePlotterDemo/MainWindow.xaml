@@ -10,40 +10,40 @@
         Loaded="Window_Loaded"
         ResizeMode="CanResize"
         Title="OpenControls.Wpf.SurfacePlotDemo" Height="300" Width="500">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/OpenControls.Wpf.Utilities;component/View/Dictionary.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" Margin="0" Background="LightSteelBlue">
-            <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="99" Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-                <Button Grid.Row="0" Grid.Column="0" x:Name="_buttonStart" Content="Start" HorizontalAlignment="Left" Width="80" Click="_buttonStart_Click" Visibility="{Binding IsRunning, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
-                <Button Grid.Row="0" Grid.Column="0" x:Name="_buttonStop" Content="Stop" HorizontalAlignment="Left" Width="80" Click="_buttonStop_Click" Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                <Label Grid.Row="0" Grid.Column="2" Content="Speed:" Style="{StaticResource LabelStyle}"/>
-                <ComboBox Grid.Row="0" Grid.Column="4" ItemsSource="{Binding Speeds}" SelectedValue="{Binding SelectedSpeed}" IsEnabled="{Binding IsRunning, Converter={StaticResource InverseBooleanConverter}}"/>
-            </Grid>
-        </Border>
-        <SurfacePlotView:ConfigurationControl Grid.Row="2" Grid.Column="0"  x:Name="_configurationControl" HorizontalAlignment="Stretch" Background="Gainsboro" BorderThickness="0"/>
-        <WindowsFormsHost Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <SurfacePlot:SurfacePlotControl x:Name="_surfacePlotControl"/>
-        </WindowsFormsHost>
-    </Grid>
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/OpenControls.Wpf.Utilities;component/View/Dictionary.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Border Grid.Row="0" Grid.Column="0" Margin="0" Background="LightSteelBlue">
+			<Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="99" Margin="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="10"/>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition Width="10"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<Button Grid.Row="0" Grid.Column="0" x:Name="_buttonStart" Content="Start" HorizontalAlignment="Left" Width="80" Click="_buttonStart_Click" Visibility="{Binding IsRunning, Converter={StaticResource InverseBooleanToVisibilityConverter}}"/>
+				<Button Grid.Row="0" Grid.Column="0" x:Name="_buttonStop" Content="Stop" HorizontalAlignment="Left" Width="80" Click="_buttonStop_Click" Visibility="{Binding IsRunning, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+				<Label Grid.Row="0" Grid.Column="2" Content="Speed:" Style="{StaticResource LabelStyle}"/>
+				<ComboBox Grid.Row="0" Grid.Column="4" ItemsSource="{Binding Speeds}" SelectedValue="{Binding SelectedSpeed}" IsEnabled="{Binding IsRunning, Converter={StaticResource InverseBooleanConverter}}"/>
+			</Grid>
+		</Border>
+		<SurfacePlotView:ConfigurationControl Grid.Row="1" Grid.Column="0"  x:Name="_configurationControl" Background="Gainsboro" BorderThickness="0" Grid.ColumnSpan="2" Margin="0,0,212,0"/>
+		<WindowsFormsHost Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="0" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+			<SurfacePlot:SurfacePlotControl x:Name="_surfacePlotControl"/>
+		</WindowsFormsHost>
+	</Grid>
 </Window>
